@@ -10,5 +10,9 @@
   "devDependencies": {
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.1"
+  },
+  "dependencies": {
+    "random-paragraph": "^1.0.4",
+    "ts-randomstring": "^1.0.8"
   }
 }
