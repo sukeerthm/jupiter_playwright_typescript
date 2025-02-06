@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { homePage } from '../jupiter-pages/homepage';
 import { contactPage } from '../jupiter-pages/contactpage';
-import { userDetailsFromJson } from '../resources/userData.json'
+import { userDetailsFromJson } from '../resources/userDetailsToFillTheForm.json'
 
 let homepage;
 let contactpage;
@@ -26,14 +26,7 @@ test(`TestCase 2 - User ${detailsToFillForm.forename} can Submit the feedback fo
     await homepage.clickContactMenu();
     await contactpage.fillTheFormUsingJsonData(detailsToFillForm);
     await contactpage.submitTheForm(detailsToFillForm.forename)
-   // expect(test.info().status).toMatch(test.info().expectedStatus);
+    expect(test.info().status).toMatch(test.info().expectedStatus);
 });
 }
-
-
-test.afterEach(async ({ page }) => {
-    console.log(`Finished ${test.info().title} with status ${test.info().status}`);
-    if (test.info().status !== test.info().expectedStatus)
-      console.log(`Did not run as expected`);
-  });
 

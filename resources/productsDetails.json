@@ -1,0 +1,19 @@
+{
+"productsToPurchase": [
+    {
+      "productName": "Stuffed Frog", 
+      "Quantity": "2",
+      "price":"10.99" 
+    },
+    { 
+        "productName": "Fluffy Bunny", 
+        "Quantity": "5",
+        "price":"9.99"  
+    },
+    { 
+        "productName": "Valentine Bear", 
+        "Quantity": "3",
+        "price":"14.99"  
+    }
+]
+}
