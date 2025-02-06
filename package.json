@@ -12,6 +12,8 @@
     "@types/node": "^22.13.1"
   },
   "dependencies": {
+    "@faker-js/faker": "^9.4.0",
+    "csv-parse": "^5.6.0",
     "random-paragraph": "^1.0.4",
     "ts-randomstring": "^1.0.8"
   }
