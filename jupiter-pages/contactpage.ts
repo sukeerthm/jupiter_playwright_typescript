@@ -20,16 +20,22 @@ export class contactPage {
   readonly email_error: Locator;
   readonly message_error: Locator;
 
+  //Page Titles and Messages
   readonly header_text = "We welcome your feedback - tell it how it is.";
+  readonly feedback_popup_header = "Sending Feedback";
+
+  // Form Error Messages
   readonly header_error_text = "We welcome your feedback - but we won't get it unless you complete the form correctly."
   readonly forename_error_text = "Forename is required";
   readonly email_error_text = "Email is required";
   readonly message_error_text = "Message is required";
-  readonly feedback_popup_header = "Sending Feedback";
+
 
 
    constructor(page: Page) {
     this.page = page;
+
+    //Locator details 
     this.formHeader = page.locator("//*[@id='header-message']//strong");
     this.forename = page.locator('#forename');
     this.surname = page.locator('#surname');
@@ -71,11 +77,13 @@ export class contactPage {
   }
 
 
+  //Validate Form is successuflly submitted 
   async verifyFormSubmittedSuccessfully(name: string) {
-    const successfull_feedback_message = 'Thanks '+name+', we appreciate your feedback.'
-    await expect(this.FormSubmissionSuccess).toHaveText(successfull_feedback_message);
+    const successfull_feedback_message = 'Thanks '+name+', we appreciate your feedback.' 
+    await expect(this.FormSubmissionSuccess).toHaveText(successfull_feedback_message); //Validate the success message contains User Forename
   }
 
+  //Fill the form with Test Data from JSON file
   async fillTheFormUsingJsonData(json: Record<string, any>) {
     await this.enterForename(json.forename);
     await this.enterSurname(json.surename);
@@ -84,6 +92,7 @@ export class contactPage {
     await this.enterMessage(json.message);
   }
 
+  //Validate Error Messages for each field on the form
   async validateErrorMessages() {
    await expect(this.header_error).toHaveText(this.header_error_text);
    await expect(this.forename_error).toHaveText(this.forename_error_text);
@@ -91,6 +100,7 @@ export class contactPage {
    await expect(this.message_error).toHaveText(this.message_error_text);
   }
 
+  //Verify error messages are gone if the form is filled
   async validateIfErrorMessagesAreGone() {
     await expect(this.header_error).toHaveText(this.header_text);
     await expect(this.forename_error).toBeHidden();
@@ -98,12 +108,13 @@ export class contactPage {
     await expect(this.message_error).toBeHidden();
    }
 
+   //Submit the form and make sure success message shows user name
    async submitTheForm(username : string){
     await this.clickSubmit();
     await expect(this.feedbackProcessingBar).toBeVisible();
     const poupHeader = await this.feedbackProcessingBar.innerText();
     expect(poupHeader).toBe(this.feedback_popup_header);
-    await expect(this.feedbackProcessingBar).toBeHidden({timeout: 18000});
+    await expect(this.feedbackProcessingBar).toBeHidden({timeout: 18000}); //Added conditional timeout to make sure Feedback successfull popup is disappeared 
     await this.verifyFormSubmittedSuccessfully(username);
    }
 
