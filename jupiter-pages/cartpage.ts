@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
 
-//Class to capture all the locator details and actions realted to CART page
+//Class to capture all the locator details realted to CART page
 export abstract class cartPage {
 
     readonly page: Page;

@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { mandatoryFields} from '../resources/formMandatoryFields';
 
-//Class to capture all the locator details and actions realted to CONTACT page
+//Class to capture all the locator details realted to CONTACT page
 export abstract class contactPage implements mandatoryFields  {
 
   readonly page: Page;

@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
 
-//Class to capture all the locator details and actions realted to HOME page
+//Class to capture all the locator details realted to HOME page
 export class homePage {
   readonly page: Page;
   readonly contactMenu: Locator;

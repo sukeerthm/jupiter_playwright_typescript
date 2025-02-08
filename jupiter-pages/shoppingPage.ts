@@ -1,6 +1,6 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
-//Class to capture all the locator details and actions realted to SHOPPING page
+//Class to capture all the locator details realted to SHOPPING page
 export abstract class shoppingPage{
 
     readonly page: Page;
@@ -13,7 +13,6 @@ export abstract class shoppingPage{
     private titleOfTheProduct: string;
     private priceOfTheProduct: string;
     
-  
     constructor(page: Page) { 
       this.page = page;
       //Locator Details
