@@ -81,6 +81,4 @@ export abstract class contactPage implements mandatoryFields  {
     await this.submitButton.click();
   }
 
-
-
 }

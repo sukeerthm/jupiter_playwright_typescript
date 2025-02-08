@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
     allProductInfo = new productDetails(page);
     itemsInCart = new cartInfo(page);
     homepage= new homePage(page);
-    await homepage.goto(); 
+    await page.goto('/'); 
   });
 
 

@@ -18,12 +18,6 @@ export class homePage {
     this.pageTitle = "Jupiter Toys"
   }
 
-  //Navigate to Jupiter webpage, the actual URL is declated in the 'playwright.config.js' 
-  async goto() {
-    await this.page.goto('/');
-    await expect(this.page).toHaveTitle("Jupiter Toys");
-  }
-
   //Go to ContactForm
   async clickContactMenu() {
     await this.contactMenu.click()
