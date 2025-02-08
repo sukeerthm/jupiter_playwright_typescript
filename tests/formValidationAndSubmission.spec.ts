@@ -31,3 +31,8 @@ test(`TestCase 2 - User ${detailsToFillForm.forename} can Submit the feedback fo
 });
 }
 
+test.afterEach(async ({}, testInfo) => {
+    if (testInfo.status !== testInfo.expectedStatus)
+      console.log(`${testInfo.title} did not run as expected!`);
+  });
+

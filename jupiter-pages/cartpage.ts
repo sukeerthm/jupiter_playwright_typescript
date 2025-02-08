@@ -1,6 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 
 
+//Class to capture all the locator details and actions realted to CART page
 export abstract class cartPage {
 
     readonly page: Page;
@@ -11,7 +12,7 @@ export abstract class cartPage {
   
     constructor(page:Page){
         this.page = page;
-        //Locator details
+        //Locator details 
         this.cartHeader = this.page.locator('p.cart-msg');
         this.columnsInCart = this.page.locator('td.ng-binding');  
         this.rowsInCart = this.page.locator('tr.cart-item.ng-scope')

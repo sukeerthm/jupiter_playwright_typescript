@@ -1,3 +1,5 @@
+
+//Interface with mandatory fields to submit the form
 export interface mandatoryFields{
     
     header_error_text: string;
