@@ -3,8 +3,9 @@ import { expect, type Locator, type Page } from '@playwright/test';
 export class homePage {
   readonly page: Page;
   readonly contactMenu: Locator;
-  readonly shopMenu: Locator
-  readonly cartMenu: Locator
+  readonly shopMenu: Locator;
+  readonly cartMenu: Locator;
+  readonly pageTitle: any;
 
   constructor(page: Page) {
     this.page = page;
@@ -12,6 +13,7 @@ export class homePage {
     this.contactMenu = page.getByRole('link', { name: 'contact' });
     this.shopMenu = page.locator('#nav-shop');
     this.cartMenu = page.getByRole('link', { name: 'cart' });
+    this.pageTitle = "Jupiter Toys"
   }
 
   //Navigate to Jupiter webpage, the actual URL is declated in the 'playwright.config.js' 
@@ -22,7 +24,7 @@ export class homePage {
 
   //Go to ContactForm
   async clickContactMenu() {
-    await this.contactMenu.click();
+    await this.contactMenu.click()
   }
 
   //Go to Shopping Page
@@ -34,5 +36,4 @@ export class homePage {
   async clickCartMenu() {
     await this.cartMenu.click();
   }
-
 }
