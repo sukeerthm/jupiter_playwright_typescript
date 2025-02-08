@@ -1,5 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
-import { shoppingPage } from '../jupiter-pages/shoppingpage';
+import { shoppingPage } from '../jupiter-pages/shoppingPage';
 
 
 export class productDetails extends shoppingPage {
