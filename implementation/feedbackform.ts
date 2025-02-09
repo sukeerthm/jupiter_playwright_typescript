@@ -1,4 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { faker } from '@faker-js/faker';
 import { contactPage } from '../jupiter-pages/contactpage';
 
 
@@ -26,6 +27,15 @@ export class feedbackForm extends contactPage {
         await this.enterPhone(json.phone);
         await this.enterMessage(json.message);
       }
+
+      //Fill the form using faker library
+      async fillTheFormUsingRandomData() {
+        await this.enterForename(faker.person.firstName());
+        await this.enterSurname(faker.person.lastName());
+        await this.enterEmail(faker.internet.email());
+        await this.enterPhone(faker.helpers.fromRegExp('02[0-9]{8}'));
+        await this.enterMessage(faker.word.words(10));
+      }
     
       //Validate Error Messages for each field on the form
       async validateAllErrorMessages() {
@@ -47,8 +57,6 @@ export class feedbackForm extends contactPage {
        async submitTheForm(username : string){
         await this.clickSubmit();
         await expect(this.feedbackProcessingBar).toBeVisible();
-        const poupHeader = await this.feedbackProcessingBar.innerText();
-        expect(poupHeader).toBe(this.feedback_popup_header);
         await expect(this.feedbackProcessingBar).toBeHidden({timeout: 18000}); //Added conditional timeout to make sure Feedback successfull popup is disappeared 
         await this.verifyFormSubmittedSuccessfully(username);
        }

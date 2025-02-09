@@ -55,7 +55,6 @@ export abstract class contactPage implements mandatoryFields  {
     this.message_error = page.locator('#message-err');
   }
 
- 
 
   async enterForename(firstname: string) {
    await this.forename.fill(firstname);

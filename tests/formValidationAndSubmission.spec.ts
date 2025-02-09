@@ -17,7 +17,7 @@ test ('TestCase 1 - Verify Error Messages, Fill the mandatory fields and validat
     await homepage.clickContactMenu();  //Navigate to Contact Page
     await feedbackform.clickSubmit(); //Click Submit Button
     await feedbackform.validateAllErrorMessages(); //Validate all the Error Messages on the page
-    await feedbackform.fillTheFormUsingJsonData(userDetailsFromJson[0]); //Fill the form using details from JSON
+    await feedbackform.fillTheFormUsingRandomData(); //Fill the form using details generated from faker library
     await feedbackform.validateIfErrorMessagesAreGone(); //Validate all the Error messages are disappeared 
 });
 
